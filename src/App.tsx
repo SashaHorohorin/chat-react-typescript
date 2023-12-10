@@ -1,11 +1,15 @@
+import { useContext } from 'react'
 import './style.css'
+import { observer } from 'mobx-react-lite'
+import { Context } from '.'
 
-export const App = () => {
+const App = () => {
+  const { store } = useContext(Context)
   return (
     <>
-      <h1>
-        React App Chat - {process.env.NODE_ENV} {process.env.name}
-      </h1>
+      <h1>{store.hello}</h1>
     </>
   )
 }
+
+export default observer(App)
